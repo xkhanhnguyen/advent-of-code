@@ -30,6 +30,7 @@ def part1(data):
 def part2(data):
     oxy = data[::]
     co2 = data[::]
+    # to determine the oxygen generator rating
     for i in range(len(data[0])): 
         count = Counter([num[i] for num in oxy])
         if count['1'] >= count['0']:
@@ -40,6 +41,7 @@ def part2(data):
         if len(oxy) == 1:
             break
 
+    # to determine the CO2 scrubber rating
     for i in range(len(data[0])): 
         count = Counter([num[i] for num in co2])
         if count['1'] >= count['0']:
