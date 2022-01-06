@@ -52,6 +52,9 @@ def part2(flows):
     top3 = sorted(size[1:], reverse=True)[:3]
 
     return np.prod(top3)
+
+
+    
 if __name__ == '__main__':
     flows = get_data('input.txt')
     basin = Basin(flows)
