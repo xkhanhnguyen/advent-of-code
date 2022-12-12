@@ -34,7 +34,6 @@ def priority(data):
 
 
 
-
 if __name__ == "__main__":
     data = get_data('input.txt')
     testing = get_data('test_data.txt')
