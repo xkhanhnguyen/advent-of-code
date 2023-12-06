@@ -10,4 +10,9 @@ for i, line in enumerate(data):
         p1[i] *= 2
         p2[i+j+1] += p2[i]
 
-for p in p1, p2: print(sum(map(int, p)))
+part1 = int_list = list(map(int, p1))
+part2 = int_list = list(map(int, p2))
+
+
+print('Part 1:', sum(part1))
+print('Part 2:', sum(part2))
