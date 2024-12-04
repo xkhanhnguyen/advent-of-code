@@ -21,13 +21,12 @@ def result(filename) -> int:
     enabled = True
     part2 = 0
     for instruction in part2_instruction:
-        match instruction[0]:
-            case "do()":
-                enabled = True
-            case "don't()":
-                enabled = False
-            case _ if enabled:
-                part2 += int(instruction[1]) * int(instruction[2])
+        if instruction[0] == "do()":
+            enabled = True
+        elif instruction[0] == "don't()":
+            enabled = False
+        elif enabled:
+            part2 += int(instruction[1]) * int(instruction[2])
 
     return part1, part2
 
