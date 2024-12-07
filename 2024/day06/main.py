@@ -11,7 +11,7 @@ def get_data(filename):
     return grid, start_x, start_y
 
 def visited_positions(grid, x, y):
-    pos = (x, y)
+    pos = (x, y) 
     idx = 0
     directions = ((-1, 0), (0, 1), (1, 0), (0, -1))  # Up, Right, Down, Left
     rows, cols = len(grid), len(grid[0])
@@ -19,13 +19,12 @@ def visited_positions(grid, x, y):
     visited = set()
     visited.add(pos)
 
-    visited_entry = {}  
+    visited_entry = {}
 
     while True:
-        d = directions[idx]
-        n = (pos[0] + d[0], pos[1] + d[1])
+        d = directions[idx] # current position
+        n = (pos[0] + d[0], pos[1] + d[1]) #next position
 
-       
         if n[0] < 0 or n[0] >= rows or n[1] < 0 or n[1] >= cols:
             return True, visited, visited_entry  
 
@@ -39,18 +38,34 @@ def visited_positions(grid, x, y):
         if n not in visited_entry:
             visited_entry[n] = (pos, idx)
         elif visited_entry[n] == (pos, idx):
-            return False, None, None  
+            return False, None, None
+        
+
 
         pos = n
 
 def result(filename) -> tuple:
     grid, start_x, start_y = get_data(filename)
     is_leaving, visited, visited_entry = visited_positions(grid, start_x, start_y)
-    # print(is_leaving, visited, visited_entry)
+
     part1 = len(visited)
-    part2 = 0 
+    part2=0
+    
+    for x, y in visited:
+        original = grid[x][y]
+
+        if x == start_x and y == start_y:
+            continue
+
+        grid[x][y] = '#'
+        is_leaving, visited, visited_entry = visited_positions(grid, start_x, start_y)
+        if not is_leaving:
+            part2 += 1
+
+        grid[x][y] = original
+
     return part1, part2
 
 if __name__ == "__main__":
-    print('Answer sample:', result('example.txt'))
+    # print('Answer sample:', result('example.txt'))
     print('Answer:', result('input.txt'))
