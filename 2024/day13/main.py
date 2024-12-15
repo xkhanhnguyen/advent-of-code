@@ -2,7 +2,6 @@ import math
 from itertools import product
 
 def parse_input(file_name, part):
-    """Reads the input file and parses the claw machine data."""
     machines = []
     with open(file_name, 'r') as file:
         lines = file.readlines()
@@ -17,7 +16,6 @@ def parse_input(file_name, part):
     return machines
 
 def solve_claw_machine(button_a, button_b, prize, max_presses=100):
-    """Solves for the minimum presses of buttons A and B to align with the prize."""
     ax, ay = button_a
     bx, by = button_b
     px, py = prize
@@ -42,7 +40,6 @@ def solve_claw_machine(button_a, button_b, prize, max_presses=100):
     return min_tokens if min_tokens != math.inf else None, best_a, best_b
 
 def result(file_name, part=1):
-    """Calculates the minimum tokens required to win all possible prizes."""
     machines = parse_input(file_name, part)
     total_tokens = 0
     total_prizes = 0
