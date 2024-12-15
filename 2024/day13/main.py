@@ -20,10 +20,8 @@ def solve_claw_machine(button_a, button_b, prize, max_presses=100):
     bx, by = button_b
     px, py = prize
 
-    # Debug: Print prize values
-    print(f"Prize: {prize}, Button A: {button_a}, Button B: {button_b}")
+    # print(f"Prize: {prize}, Button A: {button_a}, Button B: {button_b}")
 
-    # Iterate over possible presses of A and B (0 to max_presses)
     min_tokens = math.inf
     best_a, best_b = -1, -1
 
@@ -34,8 +32,8 @@ def solve_claw_machine(button_a, button_b, prize, max_presses=100):
                 min_tokens = tokens
                 best_a, best_b = a, b
 
-    # Debug: Print the result for this machine
-    print(f"Min tokens: {min_tokens}, Best A: {best_a}, Best B: {best_b}")
+    
+    # print(f"Min tokens: {min_tokens}, Best A: {best_a}, Best B: {best_b}")
 
     return min_tokens if min_tokens != math.inf else None, best_a, best_b
 
