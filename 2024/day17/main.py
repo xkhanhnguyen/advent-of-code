@@ -153,7 +153,7 @@ def solve(part, filename):
         print(f"Lowest valid A: {solution_a}")
 
 
-# Example usage
+
 if __name__ == "__main__":
     (solve(part=1, filename='example.txt'),solve(part=2, filename='example.txt'))
     (solve(part=1, filename='input.txt'),solve(part=2, filename='input.txt'))
